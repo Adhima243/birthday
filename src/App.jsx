@@ -5,6 +5,7 @@ import Gallery from './pages/Gallery'
 import Closing from './pages/Closing'
 import Navbar from './components/Navbar'
 import MusicPlayer from './components/MusicPlayer'
+import { BIRTHDAY_WIB, getWibTargetTimestamp } from './utils/birthdayTime'
 import './App.css'
 
 function App() {
@@ -14,9 +15,8 @@ function App() {
   // Check if countdown is finished
   useEffect(() => {
     const checkCountdown = () => {
-      const birthdayDate = new Date('2026-05-14').getTime()
-      const now = new Date().getTime()
-      setIsUnlocked(now >= birthdayDate)
+      const now = Date.now()
+      setIsUnlocked(now >= getWibTargetTimestamp(BIRTHDAY_WIB))
     }
 
     checkCountdown()

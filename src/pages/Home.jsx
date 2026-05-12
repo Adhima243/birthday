@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiChevronDown, FiLock } from 'react-icons/fi';
+import { BIRTHDAY_WIB, getCountdownFromNowWib } from '../utils/birthdayTime';
 
 export default function Home({ isLocked = true }) {
   const [countdown, setCountdown] = useState({
@@ -12,18 +13,13 @@ export default function Home({ isLocked = true }) {
 
   useEffect(() => {
     const calculateCountdown = () => {
-      const targetDate = new Date('2026-05-14').getTime();
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setCountdown({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
+      const next = getCountdownFromNowWib(BIRTHDAY_WIB);
+      setCountdown({
+        days: next.days,
+        hours: next.hours,
+        minutes: next.minutes,
+        seconds: next.seconds,
+      });
     };
 
     calculateCountdown();
