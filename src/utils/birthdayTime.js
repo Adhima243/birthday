@@ -11,7 +11,7 @@ export function getWibTargetTimestamp(target = BIRTHDAY_WIB) {
   const { year, month, day, hour = 0, minute = 0, second = 0 } = target;
 
   // WIB is UTC+7, so convert WIB clock time to UTC timestamp.
-  return Date.UTC(year, month - 1, day, hour - 7, minute, second);
+  return Date.UTC(year, month - 1, day, hour - 8, minute, second);
 }
 
 export function getCountdownFromNowWib(target = BIRTHDAY_WIB) {
