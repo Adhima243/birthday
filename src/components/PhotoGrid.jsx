@@ -15,31 +15,34 @@ export default function PhotoGrid() {
     { 
       id: 1, 
       src: photo1, 
-      span: 'col-span-2 row-span-2',
-      caption: 'Aku suka caramu marah kepadaku (meskipun agak ngeri)' 
+      span: 'col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 row-span-2 md:row-span-3 lg:row-span-3',
+      caption: 'Aku suka caramu marah kepadaku (meskipun agak ngeri)',
+      objectPosition: 'center top'
     },
     { 
       id: 2, 
       src: photo2, 
-      span: 'col-span-1 row-span-1',
-      caption: 'Senyuman mu adalah hal terindah di dunia' 
+      span: 'col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 row-span-2 md:row-span-2 lg:row-span-2',
+      caption: 'Senyuman mu adalah hal terindah di dunia',
+      objectPosition: 'center top'
     },
     { 
       id: 3, 
       src: photo3, 
-      span: 'col-span-1 row-span-1',
-      caption: 'Mata mu yang berbicara lebih dari ribuan kata' 
+      span: 'col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 row-span-2 md:row-span-2 lg:row-span-2',
+      caption: 'Mata mu yang berbicara lebih dari ribuan kata',
+      objectPosition: 'center top'
     },
     { 
       id: 4, 
       src: photo4, 
-      span: 'col-span-2 row-span-1',
+      span: 'col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 row-span-1 md:row-span-1 lg:row-span-1',
       caption: 'Setiap momen denganmu terasa seperti mimpi indah' 
     },
     { 
       id: 5, 
       src: photo5, 
-      span: 'col-span-4 row-span-2',
+      span: 'col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 row-span-2 md:row-span-2 lg:row-span-2',
       caption: 'Kamu adalah alasan terbaik untuk tersenyum setiap hari' 
     },
   ];
@@ -47,7 +50,7 @@ export default function PhotoGrid() {
   return (
     <div className="space-y-8">
       {/* Grid */}
-      <div className="grid grid-cols-4 gap-4 auto-rows-[250px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 auto-rows-[200px] sm:auto-rows-[250px]">
         {photos.map((photo, index) => (
           <motion.div
             key={photo.id}
@@ -60,6 +63,7 @@ export default function PhotoGrid() {
             <img
               src={photo.src}
               alt={`Photo ${photo.id}`}
+              style={{ objectPosition: photo.objectPosition || 'center' }}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
 

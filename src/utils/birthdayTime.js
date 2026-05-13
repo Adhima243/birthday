@@ -1,7 +1,7 @@
 export const BIRTHDAY_WIB = {
   year: 2026,
   month: 5,
-  day: 14,
+  day: 13,
   hour: 0,
   minute: 0,
   second: 0,

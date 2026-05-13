@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import PhotoGrid from '../components/PhotoGrid';
+import FlowerAnimation from '../components/FlowerAnimation';
 
 export default function Gallery() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream via-soft to-secondary px-4 md:px-8 py-20">
+      <FlowerAnimation />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
